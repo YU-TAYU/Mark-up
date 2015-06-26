@@ -12,7 +12,10 @@
       <div><xsl:value-of select="count(books/item[date/year=$no])" />件のメタデータ</div><br/>
       <h2>タイトル</h2>
     
-      <xsl:apply-templates select="books/item[date/year=$no]" />
+
+      <xsl:apply-templates select="books/item[date/year=$no]" >
+        <xsl:sort select="books/item/date" data-type="number" order="ascending" /> 
+        </xsl:apply-templates>
      
     </body>
 

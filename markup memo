@@ -1,0 +1,20 @@
+keyword.html---------------
+<form action="keyword.rb" method="post">
+<input type="text" name="creator" />
+<input type="submit" value="search" />
+</form>
+
+keyword.rb----------------
+#!/usr/bin/env ruby
+#encoding utf-8
+require 'cgi'
+require 'xml/xslt'
+
+xslt=XML::XSLT.new()
+xslt.xml=”data.xml"
+xslt.xsl="henkan.xsl"
+xslt.parameters={"keyword"=>cgi["keyword"]}
+out=xslt.serve()
+cgi=CGI.new
+print cgi.header("text/html; charset=UTF-8")
+print out
