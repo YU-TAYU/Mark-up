@@ -5,32 +5,32 @@
 
   <html lang="ja">
     <head>
-  <title><xsl:value-of select="$no" />年</title>
+  <title>No.<xsl:value-of select="$no" /></title>
     </head>
     <body>
-      <h1><xsl:value-of select="$no" />年に出版された本</h1>
-      <div>作成日：<xsl:value-of select="books/metadata/date_created" /></div>
-      <div><xsl:value-of select="count(books/item[date/year=$no])" />件のメタデータ</div><br/>
-    
-      <xsl:apply-templates select="books/item[date/year=$no]" />
+
+      <xsl:apply-templates select="books/item[@no=$no]" />
      
     </body>
   </html>
+
 </xsl:template>
 
 <xsl:template match="books/item">
 
  <table>
- <li>タイトル <a href="{url/@resource}"> <xsl:value-of select="title" /></a> </li>
+ <li>タイトル: <a href="{url/@resource}"> <xsl:value-of select="title" /></a> </li>
 
  <li>著者名 : <xsl:value-of select="creator" /></li>
  <li>出版社 : <xsl:value-of select="publisher" /></li>
- <li>出版日 : <xsl:value-of select="date" /></li>
+ <li>出版日 : <xsl:value-of select="date/year" />-<xsl:value-of select="date/month" />-<xsl:value-of select="date/day" /></li>
  <li>価格 : <xsl:value-of select="price" />円</li>
  <li>ISBN : <xsl:value-of select="isbn" /></li>
- <li>キーワード : <xsl:value-of select="keywords" /></li>
+ <li>キーワード <xsl:value-of select="keywords" /></li>
  </table>
 <br/>
+<a href="{concat(date/year,'.html')}" ><xsl:value-of select="date/year" />年</a>
+<br/><a href="books_top.html">TOP</a>
 
 
 
