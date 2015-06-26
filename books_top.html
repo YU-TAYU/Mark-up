@@ -3,8 +3,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>書誌情報一覧</title>
+<h1>書誌情報</h1>
+
+
+<form action="search.cgi" method="get" accept-charset="utf-8">
+<td>タイトル検索</td>
+<td><input type="text" name="title"><input type="submit" value="検索">
+<input type="reset" value="リセット">
+</td><br/>
+
+</form>
+
+
+	
+</form>
 </head>
-<h1>出版年別書誌情報一覧表</h1>
+<h2>出版年別書誌情報一覧表</h2>
 <li><a href="2015.html">2015年</a></li>
 <br><li><a href="2014.html">2014年</a></li>
 <br><li><a href="2013.html">2013年</a></li>
@@ -57,4 +71,7 @@
 <br><li><a href="1964.html">1964年</a></li>
 <br><li><a href="1960.html">1960年</a></li>
 <br>
+
+<xsl:value-of select="count(books/item[date/year=$no])" />,
+
 </html>

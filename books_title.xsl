@@ -21,10 +21,11 @@
  <li>タイトル <a href="{url/@resource}"> <xsl:value-of select="title" /></a> </li>
 
  <li>著者名 : <xsl:value-of select="creator" /></li>
- <li>出版社 : <xsl:value-of select="publisher" /></li>
+ <li>出版者 : <xsl:value-of select="publisher" /></li>
  <li>出版日 : <xsl:value-of select="date" /></li>
  <li>価格 : <xsl:value-of select="price" />円</li>
  <li>ISBN : <xsl:value-of select="isbn" /></li>
+ <li>あらすじ: <xsl:value-of select="description" /><li>
  <li>キーワード : <xsl:value-of select="keywords" /></li>
  </table>
 <br/>
